@@ -132,7 +132,7 @@ const Navbar = () => {
                                                 </svg>
                                             </span>
                                         </button>
-                                        {openMobileDropdown === link.name && (
+                                        <div className={`${styles.mobileSubLinksWrapper} ${openMobileDropdown === link.name ? styles.mobileSubLinksWrapperOpen : ""}`}>
                                             <div className={styles.mobileSubLinks}>
                                                 {link.subLinks.map((subLink) => (
                                                     <Link 
@@ -145,7 +145,7 @@ const Navbar = () => {
                                                     </Link>
                                                 ))}
                                             </div>
-                                        )}
+                                        </div>
                                     </>
                                 ) : (
                                     <Link 
