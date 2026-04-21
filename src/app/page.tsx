@@ -8,12 +8,15 @@ import Testimonial from "@/components/home/testimonial/Testimonialssection";
 import FaqContact from "@/components/home/faqcontact/FaqContact";
 import Designed from "@/components/home/designed/DesignedSpacesHero";
 import Carousel from "@/components/home/carousel/Carousel";
-
+import HeroBanner from "@/components/home/hero/HeroBanner";
+import Navbar from "@/components/home/navbar/Navbar";
 
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <Navbar />
+      <HeroBanner />
       <MarqueeLogos />
       <ScrollingText />
       <Predefine />
