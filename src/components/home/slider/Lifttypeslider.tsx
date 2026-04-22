@@ -13,48 +13,9 @@ interface Slide {
   imageAlt: string;
 }
 
-const slides: Slide[] = [
-  {
-    type: "TYPE 01",
-    titleGold: "Passenger",
-    titleWhite: "Lift",
-    description:
-      "Designed For Smooth And Efficient Movement Of People In Commercial Buildings Like Offices, Malls, And Hotels. Ensures Comfort, Safety, And High Performance During Peak Hours.",
-    imageSrc: "/images/p.jpeg",
-    imageAlt: "Passenger Lift",
-  },
-  {
-    type: "TYPE 02",
-    titleGold: "Freight",
-    titleWhite: "Elevator",
-    description:
-      "Built To Transport Heavy Goods And Industrial Cargo Across Multiple Floors. Robust Construction Ensures Durability, Load Stability, And Safe Operation In Demanding Environments.",
-    imageSrc: "/images/h.jpeg",
-    imageAlt: "Freight Elevator",
-  },
-  {
-    type: "TYPE 03",
-    titleGold: "Panoramic",
-    titleWhite: "Lift",
-    description:
-      "Offers Stunning 360° Views Through Glass Enclosures, Perfect For Luxury Hotels, Malls, And High-End Residences. Combines Aesthetic Appeal With Smooth, Silent Operation.",
-    imageSrc: "/images/p.jpeg",
-    imageAlt: "Panoramic Lift",
-  },
-  {
-    type: "TYPE 04",
-    titleGold: "Home",
-    titleWhite: "Elevator",
-    description:
-      "Compact And Elegant Solution For Residential Spaces. Designed To Fit Seamlessly Into Home Interiors While Providing Safe, Quiet, And Reliable Vertical Transportation.",
-    imageSrc: "/images/h.jpeg",
-    imageAlt: "Home Elevator",
-  },
-];
-
 type Direction = "up" | "down" | null;
 
-export default function LiftTypeSlider() {
+export default function LiftTypeSlider({ data: slides }: { data: Slide[] }) {
   const [current, setCurrent] = useState(0);
   const [animDir, setAnimDir] = useState<Direction>(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -88,13 +49,12 @@ export default function LiftTypeSlider() {
         <div className={styles.left}>
           <div
             key={`content-${current}`}
-            className={`${styles.content} ${
-              animDir === "down"
-                ? styles.slideOutUp
-                : animDir === "up"
+            className={`${styles.content} ${animDir === "down"
+              ? styles.slideOutUp
+              : animDir === "up"
                 ? styles.slideOutDown
                 : styles.slideIn
-            }`}
+              }`}
           >
             <span className={styles.typeLabel}>{slide.type}</span>
             <h2 className={styles.title}>
@@ -167,9 +127,8 @@ export default function LiftTypeSlider() {
             key={`img-${current}`}
             src={slide.imageSrc}
             alt={slide.imageAlt}
-            className={`${styles.image} ${
-              animDir ? styles.imgFadeOut : styles.imgFadeIn
-            }`}
+            className={`${styles.image} ${animDir ? styles.imgFadeOut : styles.imgFadeIn
+              }`}
           />
         </div>
       </div>

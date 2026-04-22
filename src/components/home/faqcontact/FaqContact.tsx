@@ -42,6 +42,13 @@ const faqs: FaqItem[] = [
   },
 ];
 
+const ArrowIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+
 export default function FaqContact() {
   const [openId, setOpenId] = useState<string | null>("01");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -148,7 +155,9 @@ export default function FaqContact() {
 
             <button className={styles.submitBtn} onClick={handleSubmit}>
               <span>{submitted ? "Sent!" : "Submit"}</span>
-              <span className={styles.submitArrow}>↗</span>
+              <span className={styles.submitArrow}>
+                <ArrowIcon />
+              </span>
             </button>
           </div>
         </div>

@@ -22,7 +22,7 @@
 }
 
 .title {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: var(--font-verah);
   font-size: clamp(2rem, 3.2vw, 2.8rem);
   font-weight: 700;
   color: #ffffff;
@@ -31,7 +31,7 @@
 }
 
 .subtitle {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-montserrat);
   font-size: clamp(0.8rem, 1vw, 0.92rem);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
@@ -66,7 +66,8 @@
 .imageWrap::after {
   content: "";
   position: absolute;
-  inset: 20px; /* controls spacing from edges */
+  inset: 20px;
+  /* controls spacing from edges */
   border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 18px;
   pointer-events: none;
@@ -108,7 +109,7 @@
 }
 
 .ratingText {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-verah);
   font-size: 0.82rem;
   color: #aaaaaa;
   margin-left: 6px;
@@ -122,7 +123,7 @@
 }
 
 .reviewerName {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: var(--font-verah);
   font-size: 1.25rem;
   font-weight: 700;
   color: #b5893a;
@@ -130,7 +131,7 @@
 }
 
 .reviewerLocation {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-verah);
   font-size: 0.85rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -139,7 +140,7 @@
 
 /* ── Review text ────────────────────────────── */
 .reviewText {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-verah);
   font-size: 0.97rem;
   line-height: 1.7;
   color: #444444;
@@ -209,6 +210,7 @@
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -220,6 +222,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+
   to {
     opacity: 0;
     transform: translateY(-8px);
@@ -240,8 +243,13 @@
 }
 
 @keyframes progress {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 /* ── Responsive ────────────────────────────── */
@@ -277,6 +285,7 @@
 
 /* ── Reduced motion ────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   .fadeIn,
   .fadeOut {
     animation: none;

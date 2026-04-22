@@ -10,22 +10,26 @@ import Designed from "@/components/home/designed/DesignedSpacesHero";
 import Carousel from "@/components/home/carousel/Carousel";
 import HeroBanner from "@/components/home/hero/HeroBanner";
 import Navbar from "@/components/home/navbar/Navbar";
-
+import Footer from "@/components/home/footer/Footer";
+import { LandingType, HERO_TEXTS, SCROLLING_TEXT, PREDEFINE, CAROUSEL, LIFT_DATA, LIFE_HERO_SECTION, DESIGNED_SPACES_HERO, TESTIMONIAL } from "@/utils/constants";
 
 export default function Home() {
+  const current_theme: LandingType = "HOME";
+
   return (
     <div className={styles.page}>
       <Navbar />
-      <HeroBanner />
+      <HeroBanner data={HERO_TEXTS[current_theme]} />
       <MarqueeLogos />
-      <ScrollingText />
-      <Predefine />
-      <Carousel />
-      <Slider />
-      <HSection />
-      <Designed />
-      <Testimonial />
+      <ScrollingText data={SCROLLING_TEXT[current_theme]} />
+      <Predefine data={PREDEFINE[current_theme]} />
+      <Carousel data={CAROUSEL[current_theme]} />
+      <Slider data={LIFT_DATA[current_theme]} />
+      <HSection data={LIFE_HERO_SECTION[current_theme]} />
+      <Designed data={DESIGNED_SPACES_HERO[current_theme]} />
+      <Testimonial data={TESTIMONIAL[current_theme]} />
       <FaqContact />
+      <Footer />
     </div>
   );
 }

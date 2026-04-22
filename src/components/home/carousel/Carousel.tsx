@@ -10,50 +10,10 @@ import "swiper/css/navigation";
 
 import styles from "./Carousel.module.css";
 
-const REELS = [
-    {
-        id: 1,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/r1.jpg",
-    },
-    {
-        id: 2,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/r2.jpg",
-    },
-    {
-        id: 3,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/r3.jpg",
-    },
-    {
-        id: 4,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/r4.jpg",
-    },
-    {
-        id: 5,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/r4.jpg",
-    },
-    {
-        id: 6,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/t1.jpg",
-    },
-    {
-        id: 7,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/r1.jpg",
-    },
-    {
-        id: 8,
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        poster: "/images/r2.jpg",
-    },
-];
+// import { CAROUSEL, CURRENT_THEME } from "@/utils/constants";
 
-const Carousel = () => {
+const Carousel = ({ data }: { data: any }) => {
+    const REELS = data.REELS;
     return (
         <section className={styles.section}>
             <h2 className={styles.heading}>
@@ -101,7 +61,7 @@ const Carousel = () => {
                     modules={[EffectCoverflow, Navigation]}
                     className={styles.swiper}
                 >
-                    {REELS.map((reel) => (
+                    {REELS.map((reel: any) => (
                         <SwiperSlide key={reel.id} className={styles.slide}>
                             <div className={styles.slideInner}>
                                 <video

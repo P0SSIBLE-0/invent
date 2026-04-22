@@ -32,7 +32,7 @@
 }
 
 .headlineDark {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: var(--font-verah);
   font-size: clamp(1.8rem, 2.6vw, 2.6rem);
   font-weight: 700;
   color: #1a1a1a;
@@ -40,10 +40,9 @@
 }
 
 .headlineMuted {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: var(--font-verah);
   font-size: clamp(1.8rem, 2.6vw, 2.6rem);
   font-weight: 400;
-  font-style: italic;
   color: #a08080;
   /* dusty rose / muted */
   margin: 0;
@@ -51,7 +50,7 @@
 
 /* ── Center: tagline ───────────────────────── */
 .tagline {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-montserrat);
   font-size: clamp(0.82rem, 1vw, 0.95rem);
   line-height: 1.65;
   color: #1a1a1a;
@@ -86,7 +85,7 @@
   color: #ffffff;
   border: none;
   border-radius: 50px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-montserrat);
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;

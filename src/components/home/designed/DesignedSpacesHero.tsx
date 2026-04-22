@@ -2,30 +2,12 @@
 
 import { useState } from "react";
 import styles from "./DesignedSpacesHero.module.css";
-
-const thumbnails = [
-  { src: "/images/r1.jpg", alt: "Elevator view 1" },
-  { src: "/images/r2.jpg", alt: "Elevator view 2" },
-  { src: "/images/r3.jpg", alt: "Elevator view 3" },
-  { src: "/images/r4.jpg", alt: "Elevator view 4" },
-];
-
-const heroImages = [
-  "/images/r1.jpg",
-  "/images/r2.jpg",
-  "/images/r3.jpg",
-  "/images/r4.jpg",
-];
-
-const reviewAvatars = [
-  "/images/t1.jpg",
-  "/images/t2.jpg",
-  "/images/t3.jpg",
-  "/images/t4.jpg",
-];
-
-export default function DesignedSpacesHero() {
+export default function DesignedSpacesHero({ data }: { data: any }) {
   const [activeThumb, setActiveThumb] = useState(0);
+
+  const thumbnails = data.thumbnail;
+  const heroImages = data.images;
+  const reviewAvatars = data.review_avatars;
 
   return (
     <section className={styles.section}>
@@ -57,7 +39,7 @@ export default function DesignedSpacesHero() {
           <div className={styles.thumbSection}>
             <span className={styles.thumbLabel}>Select</span>
             <div className={styles.thumbRow}>
-              {thumbnails.map((t, i) => (
+              {thumbnails.map((t: { src: string, alt: string }, i: number) => (
                 <button
                   key={i}
                   className={`${styles.thumbBtn} ${i === activeThumb ? styles.thumbActive : ""}`}
@@ -116,7 +98,7 @@ export default function DesignedSpacesHero() {
             <span className={styles.reviewsLabel}>Reviews</span>
             <div className={styles.reviewsRow}>
               <div className={styles.avatarStack}>
-                {reviewAvatars.map((src, i) => (
+                {reviewAvatars.map((src: string, i: number) => (
                   <img
                     key={i}
                     src={src}

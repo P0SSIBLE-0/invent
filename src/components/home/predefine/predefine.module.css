@@ -1,9 +1,10 @@
 .predefine {
   position: relative;
   width: 100%;
-  min-height: 500px; /* Adjust height as needed */
+  /* min-height: 500px; */
   aspect-ratio: 16 / 9;
-  max-height: 800px;
+  /* max-height: 800px; */
+  height: 100dvh;
 }
 
 .bannerImage {

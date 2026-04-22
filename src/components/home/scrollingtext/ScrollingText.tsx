@@ -2,73 +2,80 @@
 
 import { useEffect, useRef, useMemo } from "react";
 import styles from "./ScrollingText.module.css";
+// import { SCROLLING_TEXT } from "@/utils/constants";
 
 // Each line: text segments + inline image positions
 // imageSlot: "before" | "after" the segment, or null
 interface Segment {
   text: string;
-  color: "dark" | "gold" | "muted";
+  color: string;
   imageSrc?: string; // image shown BEFORE this segment
   imageAfter?: boolean; // if true, image comes AFTER segment text
 }
 
 interface Line {
   segments: Segment[];
-  direction: "left" | "right"; // scroll direction on reveal
+  direction: string; // scroll direction on reveal
 }
 
-const lines: Line[] = [
-  {
-    direction: "left",
-    segments: [
-      {
-        text: "BEFORE YOU INSTALL",
-        color: "dark",
-        imageSrc: "/images/Rectangle 75.png",
-      },
-    ],
-  },
-  {
-    direction: "right",
-    segments: [
-      { text: "LIFTS, ", color: "dark" },
-      { text: "BUILD", color: "gold" },
-      {
-        text: " THE",
-        color: "dark",
-        imageAfter: true,
-        imageSrc: "/images/Rectangle 76.png",
-      },
-    ],
-  },
-  {
-    direction: "left",
-    segments: [{ text: "SYSTEM — SAFETY,", color: "muted" }],
-  },
-  {
-    direction: "right",
-    segments: [
-      {
-        text: "PERFORMANCE, AND",
-        color: "muted",
-        imageSrc: "/images/Rectangle 77.png",
-      },
-    ],
-  },
-  {
-    direction: "left",
-    segments: [
-      {
-        text: "PRECISION.",
-        color: "muted",
-        imageAfter: true,
-        imageSrc: "/images/Rectangle 78.png",
-      },
-    ],
-  },
-];
+// const lines: Line[] = [
+//   {
+//     direction: "left",
+//     segments: [
+//       {
+//         text: "BEFORE YOU INSTALL",
+//         color: "dark",
+//         imageSrc: "/images/Rectangle 75.png",
+//       },
+//     ],
+//   },
+//   {
+//     direction: "right",
+//     segments: [
+//       { text: "LIFTS, ", color: "dark" },
+//       { text: "BUILD", color: "gold" },
+//       {
+//         text: " THE",
+//         color: "dark",
+//         imageAfter: true,
+//         imageSrc: "/images/Rectangle 76.png",
+//       },
+//     ],
+//   },
+//   {
+//     direction: "left",
+//     segments: [{ text: "SYSTEM — SAFETY,", color: "muted" }],
+//   },
+//   {
+//     direction: "right",
+//     segments: [
+//       {
+//         text: "PERFORMANCE, AND",
+//         color: "muted",
+//         imageSrc: "/images/Rectangle 77.png",
+//       },
+//     ],
+//   },
+//   {
+//     direction: "left",
+//     segments: [
+//       {
+//         text: "PRECISION.",
+//         color: "muted",
+//         imageAfter: true,
+//         imageSrc: "/images/Rectangle 78.png",
+//       },
+//     ],
+//   },
+// ];
 
-export default function ScrollingText() {
+// const lines = SCROLLING_TEXT.HOME;
+
+interface ScrollingTextProps {
+  data: Line[];
+}
+export default function ScrollingText({ data }: ScrollingTextProps) {
+  const lines = data || [];
   const sectionRef = useRef<HTMLElement>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
@@ -127,7 +134,7 @@ export default function ScrollingText() {
   return (
     <section className={styles.section} ref={sectionRef}>
       <div className={styles.inner}>
-        {enrichedLines.map((line, li) => (
+        {enrichedLines?.map((line, li) => (
           <div
             key={li}
             className={styles.line}

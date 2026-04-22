@@ -1,35 +1,36 @@
 "use client";
 
 import styles from "./Herosection.module.css";
+// import { LIFE_HERO_SECTION, CURRENT_THEME } from "@/utils/constants";
 
 interface HeroSectionProps {
   imageSrc?: string;
   imageAlt?: string;
+  data: any;
 }
 
-export default function HeroSection({
-  imageSrc = "/images/life.png",
-  imageAlt = "Designed Spaces for Refined Stays",
-}: HeroSectionProps) {
+export default function HeroSection(props: HeroSectionProps) {
+  const data = props.data;
+  const imageSrc = props.imageSrc ?? data.imageSrc;
+  const imageAlt = props.imageAlt ?? data.imageAlt;
   return (
     <section className={styles.section}>
       {/* ── Top bar ── */}
       <div className={styles.topBar}>
         {/* Left: headline */}
         <div className={styles.headline}>
-          <h1 className={styles.headlineDark}>Designed Spaces</h1>
-          <h1 className={styles.headlineMuted}>for Refined Stays</h1>
+          <h1 className={styles.headlineDark}>{data.headlineDark}</h1>
+          <h1 className={styles.headlineMuted}>{data.headlineMuted}</h1>
         </div>
 
         {/* Center: tagline */}
         <div className={styles.tagline}>
           <p>
             <strong>
-              Your Life&apos;s Changing. Don&apos;t Just Find A Place — Find What&apos;s Next.
+              {data.tagline}
             </strong>{" "}
             <span className={styles.taglineMuted}>
-              We Help You Move Forward With Clarity, Confidence, And The Right
-              Agent By Your Side.
+              {data.taglineMuted}
             </span>
           </p>
         </div>
@@ -37,7 +38,7 @@ export default function HeroSection({
         {/* Right: CTA */}
         <div className={styles.ctaWrap}>
           <button className={styles.ctaBtn}>
-            <span>Get a free quote</span>
+            <span>{data.ctaBtn}</span>
             <span className={styles.ctaArrow}>↗</span>
           </button>
         </div>

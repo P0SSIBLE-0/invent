@@ -12,57 +12,17 @@ interface Testimonial {
   featureImageSrc: string;
 }
 
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "Naiza M.",
-    location: "UAE, Dubai",
-    review:
-      "The Team Was Quick, Professional And Left Our Home Spotless-Truly The Best Cleaning Service We've Used",
-    avatarSrc: "/images/t1.jpg",
-    featureImageSrc: "/images/t1.jpg",
-  },
-  {
-    id: 2,
-    name: "Sarah K.",
-    location: "UAE, Abu Dhabi",
-    review:
-      "Exceptional Service From Start To Finish. They Transformed Our Office Space Beyond Expectations. Highly Recommended.",
-    avatarSrc: "/images/t2.jpg",
-    featureImageSrc: "/images/t2.jpg",
-  },
-  {
-    id: 3,
-    name: "James R.",
-    location: "UAE, Sharjah",
-    review:
-      "Outstanding Attention To Detail. Our Property Has Never Looked Better. The Team Is Reliable And Trustworthy.",
-    avatarSrc: "/images/t3.jpg",
-    featureImageSrc: "/images/t3.jpg",
-  },
-  {
-    id: 4,
-    name: "Layla H.",
-    location: "UAE, Dubai",
-    review:
-      "Absolutely Incredible Experience. Professional Staff, Immaculate Results, And Great Value For Money. Will Use Again.",
-    avatarSrc: "/images/t4.jpg",
-    featureImageSrc: "/images/t4.jpg",
-  },
-  {
-    id: 5,
-    name: "Omar T.",
-    location: "UAE, Dubai Marina",
-    review:
-      "From Booking To Completion, Everything Was Seamless. The Results Speak For Themselves — Simply Flawless.",
-    avatarSrc: "/images/t2.jpg",
-    featureImageSrc: "/images/t2.jpg",
-  },
-];
-
 const AUTO_INTERVAL = 4000;
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({ data }: { data: any }) {
+  const testimonials: Testimonial[] = data.DATA.map((t: any) => ({
+    id: t.id,
+    name: t.name,
+    location: t.role,
+    review: t.content,
+    avatarSrc: t.avatar,
+    featureImageSrc: t.avatar,
+  }));
   const [active, setActive] = useState(0);
   const [animating, setAnimating] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);

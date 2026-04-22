@@ -5,19 +5,24 @@
 /* ── Section ───────────────────────────────── */
 .section {
   width: 100%;
+  height: 100dvh;
   background: #ffffff;
-  padding: 80px 0 80px 0px; /* ❗ no right padding → allows contact to touch edge */
+  padding: 80px 80px 0px;
+  /* ❗ no right padding → allows contact to touch edge */
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
+  margin-bottom: 60px;
 }
 
 /* ── Layout ───────────────────────────────── */
 .inner {
   max-width: 1200px;
-  margin-left: 60px; /* pushes layout toward right */
+  margin-left: 40px;
+  /* pushes layout toward right */
   margin-right: 0;
   display: grid;
-  grid-template-columns: 1.3fr 680px; /* ❗ fixed contact width */
+  grid-template-columns: 1.3fr 680px;
+  /* ❗ fixed contact width */
   gap: 64px;
   align-items: start;
 }
@@ -36,7 +41,7 @@
 
 /* Title */
 .faqTitle {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-verah);
   font-size: clamp(1.8rem, 2.6vw, 2.4rem);
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -131,7 +136,8 @@
    ───────────────────────────────────────────── */
 
 .contactSide {
-  width: 680px; /* ❗ fixed width = proper layout */
+  width: 680px;
+  /* ❗ fixed width = proper layout */
   background: #1a1818;
   padding: 48px 44px 44px;
   display: flex;
@@ -142,7 +148,7 @@
 
 /* Title */
 .contactTitle {
-  font-family: Georgia, serif;
+  font-family: var(--font-verah);
   font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -232,9 +238,12 @@
 .submitBtn {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between; /* ✅ pushes arrow to right */
-  width: 220px; /* ✅ longer pill like image */
-  padding: 6px 6px 6px 20px; /* tighter inside */
+  justify-content: space-between;
+  /* ✅ pushes arrow to right */
+  width: 220px;
+  /* ✅ longer pill like image */
+  padding: 6px 6px 6px 20px;
+  /* tighter inside */
   background: #f3f3f3;
   color: #1a1a1a;
   border-radius: 999px;
@@ -265,7 +274,8 @@
 
 /* Arrow hover animation */
 .submitBtn:hover .submitArrow {
-  transform: translateX(4px); /* subtle movement */
+  transform: translateX(4px);
+  /* subtle movement */
   background: #000;
 }
 
